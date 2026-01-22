@@ -1,341 +1,507 @@
-<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE HTML>
+<!--
+	Editorial by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
 
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Crumble Theory | Best in Town</title>
-  <link
-    href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Poppins:wght@300;400;500&display=swap"
-    rel="stylesheet">
-  <style>
-    * {
-      box-sizing: border-box;
-    }
+	<title>FVM-Future Vision Mastery</title>
+	<meta charset="utf-8" />
 
-    body {
-      margin: 0;
-      font-family: 'Poppins', sans-serif;
-      background: #0f0f0f;
-      color: #fff;
-    }
+	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 
-    header {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      min-height: 100vh;
-    }
+	<link href="https://cdn.jsdelivr.net/npm/remixicon@4.1.0/fonts/remixicon.css" rel="stylesheet">
 
-    .hero-text {
-      padding: 80px;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-    }
 
-    .hero-text h1 {
-      font-family: 'Playfair Display', serif;
-      font-size: 52px;
-      margin-bottom: 20px;
-    }
-
-    .hero-text p {
-      font-size: 18px;
-      opacity: 0.85;
-      max-width: 420px;
-    }
-
-    .hero-text button {
-      margin-top: 30px;
-      width: fit-content;
-      padding: 12px 30px;
-      border: none;
-      background: #c89b3c;
-      color: #000;
-      font-size: 16px;
-      cursor: pointer;
-      border-radius: 30px;
-    }
-
-    .hero-image {
-      background: url('main.jpeg') center/cover no-repeat;
-    }
-
-    section {
-      padding: 80px 8%;
-    }
-
-    .menu-title {
-      text-align: center;
-      margin-bottom: 60px;
-    }
-
-    .menu-title h2 {
-      font-size: 40px;
-      font-family: 'Playfair Display', serif;
-    }
-
-    .menu-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 30px;
-    }
-
-    .card {
-      background: #161616;
-      border-radius: 20px;
-      overflow: hidden;
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
-      transition: transform 0.3s;
-    }
-
-    .card:hover {
-      transform: translateY(-6px);
-    }
-
-    .card img {
-      width: 100%;
-      height: 200px;
-      object-fit: cover;
-    }
-
-    .card-content {
-      padding: 20px;
-    }
-
-    .card-content h3 {
-      margin: 0 0 10px;
-      font-size: 20px;
-    }
-
-    .card-content p {
-      font-size: 14px;
-      opacity: 0.8;
-      line-height: 1.6;
-    }
-
-    .price {
-      margin-top: 10px;
-      font-weight: 500;
-      color: #c89b3c;
-    }
-
-    footer {
-      background: #000;
-      padding: 40px 20px;
-      text-align: center;
-      font-size: 14px;
-      opacity: 0.8;
-    }
-
-    @media(max-width: 1024px) {
-      header {
-        grid-template-columns: 1fr;
-        min-height: auto;
-      }
-
-      .hero-image {
-        height: 320px;
-      }
-    }
-
-    @media(max-width: 768px) {
-      .hero-text {
-        padding: 48px 24px;
-      }
-
-      .hero-text h1 {
-        font-size: 36px;
-      }
-
-      .hero-text p {
-        font-size: 16px;
-      }
-
-      section {
-        padding: 56px 6%;
-      }
-
-      .menu-title h2 {
-        font-size: 32px;
-      }
-
-      .card img {
-        height: 180px;
-      }
-    }
-
-    @media(max-width: 480px) {
-      .hero-text h1 {
-        font-size: 30px;
-      }
-
-      .hero-text p {
-        font-size: 15px;
-      }
-
-      .hero-text button {
-        padding: 12px 24px;
-        font-size: 14px;
-      }
-
-      .menu-grid {
-        gap: 18px;
-      }
-
-      .card {
-        border-radius: 16px;
-      }
-
-      .card-content h3 {
-        font-size: 18px;
-      }
-
-      .card-content p {
-        font-size: 13px;
-      }
-
-      footer {
-        font-size: 13px;
-      }
-
-      .hero-text img {
-        max-width: 180px;
-      }
-
-      .hero-text button {
-        width: 100%;
-        text-align: center;
-      }
-    }
-
-    /* Logo responsiveness */
-    .hero-text img {
-      max-width: 220px;
-      height: auto;
-      margin-bottom: 20px;
-    }
-
-    /* Price list styling */
-    .price-list {
-      margin-top: 12px;
-      border-top: 1px dashed rgba(255, 255, 255, 0.15);
-      padding-top: 12px;
-    }
-
-    .price-item {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 8px;
-      font-size: 14px;
-    }
-
-    .price-item span {
-      opacity: 0.85;
-    }
-
-    .price-tag {
-      background: linear-gradient(135deg, #c89b3c, #e6c77a);
-      color: #000;
-      padding: 4px 10px;
-      border-radius: 20px;
-      font-size: 13px;
-      font-weight: 500;
-    }
-  </style>
+	<link rel="stylesheet" href="assets/css/main.css" />
 </head>
 
-<body>
+<body class="is-preload">
 
-  <header>
-    <div class="hero-text">
-      <div style="width: 100%; text-align:center;">
-        <img src="logo.png" style="max-width: 50%" />
+	<!-- Wrapper -->
+	<div id="wrapper">
 
-        <h1>Crumble Theory</h1>
-      </div>
-      <p>Handcrafted cookies, cheesecakes and biscuits baked with love. Fresh. Rich. Irresistible.</p>
-      <a href="#menu"><button>View Menu</button></a>
-    </div>
-    <div class="hero-image"></div>
-  </header>
+		<!-- Main -->
+		<div id="main">
+			<div class="inner">
 
-  <section id="menu">
-    <div class="menu-title">
-      <h2>Our Signature Menu</h2>
-    </div>
+				<!-- Header -->
+				<header id="header">
+					<a href="index.html" class="logo">
+						<h2 style="color :#7f888f;"><strong style="color :#3d4449;">FVM</strong> Future Vision Mastery
+						</h2>
+					</a>
+					<!-- <ul class="icons">
+										<li><a href="#" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
+										<li><a href="#" class="icon brands fa-facebook-f"><span class="label">Facebook</span></a></li>
+										<li><a href="#" class="icon brands fa-snapchat-ghost"><span class="label">Snapchat</span></a></li>
+										<li><a href="#" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
+										<li><a href="#" class="icon brands fa-medium-m"><span class="label">Medium</span></a></li>
+									</ul> -->
+				</header>
 
-    <div class="menu-grid">
-      <div class="card">
-        <img src="one.jpg" alt="Chocolate Cookies">
-        <div class="card-content">
-          <h3>Chocolate Chip Cookies</h3>
-          <br>
+				<!-- Banner -->
+				<section id="banner">
+					<div class="row">
+						<div class="content col-6 col-12-small">
+							<header>
+								<div style="display: inline-block;">
+									<h2>Affordable Online Courses in UAE</h2>
+									<img src="images/flag0.png" style="width: 50px; margin-bottom: 20px;">
+								</div>
+								<p>– Learn Skills That Matter</p>
+							</header>
+							<p>High-quality training at budget-friendly prices. Live &recordedclasses from experienced
+								instructors. Start your learningjourney today starting from just AED 199/month!</p>
+							<!-- <ul class="actions">
+							<li><a href="#" class="button big">Learn More</a></li>
+						</ul> -->
+						</div>
 
-          <div class="price-list">
-            <div class="price-item"><span>6 pcs (150–180gm)</span><span class="price-tag">₹299</span></div>
-            <div class="price-item"><span>10 pcs (200–400gm)</span><span class="price-tag">₹480</span></div>
-            <div class="price-item"><span>20 pcs (300–600gm)</span><span class="price-tag">₹999</span></div>
-          </div>
-          <!-- <div class="price">Starting ₹299</div> -->
-        </div>
-      </div>
+						<div class="content col-6 col-12-small">
+							<header class="major">
+								<h3>Why Choose Us</h3>
+							</header>
+							<ol class="actions">
+								<li style="margin-bottom: 5px;">
+									<strong style="font-size: large;">Affordable Pricing</strong><br>
+									No hidden fees. Courses starting from AED 199 – perfect for students & working
+									professionals.
+								</li>
+								<li style="margin-bottom: 5px;">
+									<strong style="font-size: large;">Flexible Learning</strong><br>
+									Online live classes + recorded videos. Learn at your own pace, anytime, anywhere.
+								</li>
+								<li style="margin-bottom: 5px;">
+									<strong style="font-size: large;">Expert Instructors</strong><br>
+									Certified trainers with real-world experience.
+								</li>
+								<li style="margin-bottom: 5px;">
+									<strong style="font-size: large;">Job-Ready Skills</strong><br>
+									Courses designed for UAE’s growing industries – IT, Finance, Digital Marketing.
+								</li>
+							</ol>
+						</div>
+					</div>
 
-      <div class="card">
-        <img src="two.jpg" alt="Cheesecake">
-        <div class="card-content">
-          <h3>Cheesecake</h3>
-          <p>Biscoff, Strawberry & Chocolate flavours available.</p>
-          <div class="price-list">
-            <div class="price-item"><span>180–200gm</span><span class="price-tag">₹680</span></div>
-          </div>
-          <!-- <div class="price">₹680</div> -->
-        </div>
-      </div>
+				</section>
 
-      <div class="card">
-        <img src="four.jpeg" alt="Nankhatai">
-        <div class="card-content">
-          <h3>Nankhatai</h3>
-          <br>
-          <br>
-          <div class="price-list">
-            <div class="price-item"><span>10 pcs (180–200gm)</span><span class="price-tag">₹300</span></div>
-            <div class="price-item"><span>20 pcs (200–400gm)</span><span class="price-tag">₹800</span></div>
-          </div>
-          <!-- <div class="price">From ₹300</div> -->
-        </div>
-      </div>
+				<div class="chips-container">
+					<a href="#c1" class="chip pastel pink">Digital Marketing</a>
+					<a href="#c2" class="chip pastel blue">Web Development</a>
 
-      <div class="card">
-        <img src="four.jpg" alt="Butter Biscuits">
-        <div class="card-content">
-          <h3>Butter Biscuits</h3>
-          <p>Pistachio, Almond & Cashew flavours.</p>
-          <div class="price-list">
-            <div class="price-item"><span>6 pcs (180–200gm)</span><span class="price-tag">₹380</span></div>
-            <div class="price-item"><span>10 pcs (200–400gm)</span><span class="price-tag">₹780</span></div>
-            <div class="price-item"><span>20 pcs (300–700gm)</span><span class="price-tag">₹980</span></div>
-          </div>
+					<a href="#c3" class="chip pastel teal">Python Programming</a>
+					<a href="#c4" class="chip pastel orange">Java Programming</a>
 
-          <!-- <div class="price">From ₹380</div> -->
-        </div>
-      </div>
-    </div>
-  </section>
+					<a href="#c5" class="chip pastel purple">MS Excel</a>
+					<a href="#c6" class="chip pastel yellow">Rubik’s Cube</a>
 
-  <footer>
-    <p>
-      📞 Order on WhatsApp:
-      <a href="https://wa.me/916260021511" style="color:#c89b3c; text-decoration:none; font-weight:500;"
-        target="_blank">
-        +91 62600 21511
-      </a>
-    </p>
-    <p>📍 Freshly Baked in India</p>
-    <p>© 2026 Crumble Theory – Best in Town</p>
-  </footer>
+					<a href="#c7" class="chip pastel green">Chess</a>
+					<a href="#c8" class="chip pastel rose">2D Game Development</a>
+
+					<a href="#c9" class="chip pastel gray">Video Editing</a>
+					<a href="#c10" class="chip pastel lime">Financial Independence &amp; Wealth Building (FIRE)</a>
+				</div>
+
+				<br><br>
+
+
+
+				<!-- 
+				<ul class="actions fit">
+					<li><a href="#" class="button primary fit">Digital Marketing</a></li>
+					<li><a href="#" class="button fit">Web development</a></li>
+				</ul>
+				<ul class="actions fit">
+					<li><a href="#" class="button  fit">Python Programming</a></li>
+					<li><a href="#" class="button primary fit">Java Programming</a></li>
+				</ul>
+				<ul class="actions fit">
+					<li><a href="#" class="button primary fit">MS Excel</a></li>
+					<li><a href="#" class="button fit">Rubik’s cube</a></li>
+				</ul>
+				<ul class="actions fit">
+					<li><a href="#" class="button  fit">Chess</a></li>
+					<li><a href="#" class="button primary fit">2D game development</a></li>
+				</ul>
+				<ul class="actions fit">
+					<li><a href="#" class="button primary fit">Video editing</a></li>
+					<li><a href="#" class="button fit">Financial Independence & Wealth Building (FIRE)</a></li>
+				</ul> -->
+
+
+				<!-- Section -->
+				<section id="about">
+
+					<h2 id="content">About Us</h2>
+					<h3>Future Vision Mastery – Affordable Online Training in UAE</h3>
+					<p>Future Vision Mastery is a UAE-based online training academydedicated to making quality education
+						accessible to everyone. We believe that skill development shouldn’t be expensive. That’s why we
+						offer professional courses at prices that fit everybudget – starting from just AED 199 per
+						month. Our coursesaredesigned by industry experts and focus on practical, job-readyskills that
+						help you grow in UAE’s competitive job market.</p>
+					<div class="row">
+						<div class="col-4 col-12-small">
+							<h3>Our Mission</h3>
+							<p>To empower UAE residents and expats with affordable, high- quality online education.</p>
+						</div>
+						<div class="col-4 col-12-small">
+							<h3>Our Vision</h3>
+							<p>To become the #1 choice for budget-friendly professional
+								training in the UAE.</p>
+						</div>
+						<div class="col-4 col-12-small">
+							<h3>Our Values</h3>
+							<ul>
+								<li>Affordability</li>
+								<li>Quality Education</li>
+								<li>Flexibility</li>
+								<li>Student Success</li>
+							</ul>
+						</div>
+					</div>
+					<!-- <header class="major">
+						<h2>Erat lacinia</h2>
+					</header> -->
+					<!-- <div class="features">
+						<article>
+							<span class="icon fa-gem"></span>
+							<div class="content">
+								<h3>Portitor ullamcorper</h3>
+								<p>Aenean ornare velit lacus, ac varius enim lorem ullamcorper dolore. Proin aliquam
+									facilisis ante interdum. Sed nulla amet lorem feugiat tempus aliquam.</p>
+							</div>
+						</article>
+						<article>
+							<span class="icon solid fa-paper-plane"></span>
+							<div class="content">
+								<h3>Sapien veroeros</h3>
+								<p>Aenean ornare velit lacus, ac varius enim lorem ullamcorper dolore. Proin aliquam
+									facilisis ante interdum. Sed nulla amet lorem feugiat tempus aliquam.</p>
+							</div>
+						</article>
+						<article>
+							<span class="icon solid fa-rocket"></span>
+							<div class="content">
+								<h3>Quam lorem ipsum</h3>
+								<p>Aenean ornare velit lacus, ac varius enim lorem ullamcorper dolore. Proin aliquam
+									facilisis ante interdum. Sed nulla amet lorem feugiat tempus aliquam.</p>
+							</div>
+						</article>
+						<article>
+							<span class="icon solid fa-signal"></span>
+							<div class="content">
+								<h3>Sed magna finibus</h3>
+								<p>Aenean ornare velit lacus, ac varius enim lorem ullamcorper dolore. Proin aliquam
+									facilisis ante interdum. Sed nulla amet lorem feugiat tempus aliquam.</p>
+							</div>
+						</article>
+					</div> -->
+				</section>
+
+				<!-- Section -->
+				<section id="course">
+					<header class="major">
+						<h2>Courses</h2>
+					</header>
+					<div class="content">
+						<header>
+							<p>Our Online Courses – Starting from <b>AED 199</b> per month</p>
+						</header>
+						<p>Choose from our wide range of professional courses. All
+							courses include live sessions, recorded videos, assignments, and certificate.</p>
+					</div>
+					<div class="posts">
+						<article id="c1">
+							<a href="#" class="image"><img src="images/c1.jpeg" alt="" /></a>
+							<h3>Digital Marketing</h3>
+							<div class="row">
+								<h4>
+									AED 799
+								</h4>
+								<h5 style="margin-top: 4px; color: gray; text-decoration: line-through;">
+									AED 1500
+								</h5>
+								<h5 style="margin-top: 4px; color: gray;">
+									(Limited Offer)
+								</h5>
+							</div>
+							<ul>
+								<li>8 weeks duration</li>
+								<li>Live + Recording</li>
+								<li>Group Classes</li>
+								<li>Certificate Included</li>
+							</ul>
+
+						</article>
+						<article id="c2">
+							<a href="#" class="image"><img src="images/c2.jpeg" alt="" /></a>
+							<h3>Web development</h3>
+							<div class="row">
+								<h4>
+									AED 999
+								</h4>
+								<h5 style="margin-top: 4px; color: gray; text-decoration: line-through;">
+									AED 1700
+								</h5>
+								<h5 style="margin-top: 4px; color: gray;">
+									(Limited Offer)
+								</h5>
+							</div>
+							<ul>
+								<li>12 weeks duration</li>
+								<li>Live + Recording</li>
+								<li>Group Classes</li>
+								<li>Certificate Included</li>
+							</ul>
+
+
+						</article>
+						<article id="c3">
+							<a href="#" class="image"><img src="images/c3.jpeg" alt="" /></a>
+							<h3>Python Programming</h3>
+							<div class="row">
+								<h4>
+									AED 1199
+								</h4>
+								<h5 style="margin-top: 4px; color: gray; text-decoration: line-through;">
+									AED 2000
+								</h5>
+								<h5 style="margin-top: 4px; color: gray;">
+									(Limited Offer)
+								</h5>
+							</div>
+							<ul>
+								<li>12 weeks duration</li>
+								<li>Live + Recording</li>
+								<li>Group Classes</li>
+								<li>Certificate Included</li>
+							</ul>
+
+						</article>
+						<article id="c4">
+							<a href="#" class="image"><img src="images/c4.jpeg" alt="" /></a>
+							<h3>Java Programming</h3>
+							<div class="row">
+								<h4>
+									AED 1199
+								</h4>
+								<h5 style="margin-top: 4px; color: gray; text-decoration: line-through;">
+									AED 2000
+								</h5>
+								<h5 style="margin-top: 4px; color: gray;">
+									(Limited Offer)
+								</h5>
+							</div>
+							<ul>
+								<li>12 weeks duration</li>
+								<li>Live + Recording</li>
+								<li>Group Classes</li>
+								<li>Certificate Included</li>
+							</ul>
+
+						</article>
+						<article id="c5">
+							<a href="#" class="image"><img src="images/c5.jpeg" alt="" /></a>
+							<h3>MS Excel</h3>
+							<div class="row">
+								<h4>
+									AED 699
+								</h4>
+								<h5 style="margin-top: 4px; color: gray; text-decoration: line-through;">
+									AED 1000
+								</h5>
+								<h5 style="margin-top: 4px; color: gray;">
+									(Limited Offer)
+								</h5>
+							</div>
+							<ul>
+								<li>6 weeks duration</li>
+								<li>Live + Recording</li>
+								<li>Group Classes</li>
+								<li>Certificate Included</li>
+							</ul>
+
+						</article>
+						<article id="c6">
+							<a href="#" class="image"><img src="images/c6.jpeg" alt="" /></a>
+							<h3>Rubik’s cube</h3>
+							<div class="row">
+								<h4>
+									AED 499
+								</h4>
+								<h5 style="margin-top: 4px; color: gray; text-decoration: line-through;">
+									AED 1000
+								</h5>
+								<h5 style="margin-top: 4px; color: gray;">
+									(Limited Offer)
+								</h5>
+							</div>
+							<ul>
+								<li>6 weeks duration</li>
+								<li>9 different cubes</li>
+								<li>Live + Recording</li>
+								<li>Group Classes</li>
+								<li>Certificate Included</li>
+							</ul>
+						</article>
+						<article id="c7">
+							<a href="#" class="image"><img src="images/c7.jpeg" alt="" /></a>
+							<h3>Chess</h3>
+							<div class="row">
+								<h4>
+									AED 199
+								</h4>
+								<h5 style="margin-top: 4px; color: gray; text-decoration: line-through;">
+									AED 800
+								</h5>
+								<h5 style="margin-top: 4px; color: gray;">
+									(Limited Offer)
+								</h5>
+							</div>
+							<ul>
+								<li>4 weeks duration</li>
+								<li>Live + Recording</li>
+								<li>Group Classes</li>
+								<li>Certificate Included</li>
+							</ul>
+
+						</article>
+						<article id="c8">
+							<a href="#" class="image"><img src="images/c8.jpeg" alt="" /></a>
+							<h3>2D game development</h3>
+							<div class="row">
+								<h4>
+									AED 1199
+								</h4>
+								<h5 style="margin-top: 4px; color: gray; text-decoration: line-through;">
+									AED 1500
+								</h5>
+								<h5 style="margin-top: 4px; color: gray;">
+									(Limited Offer)
+								</h5>
+							</div>
+							<ul>
+								<li>12 weeks duration</li>
+								<li>Live + Recording</li>
+								<li>Group Classes</li>
+								<li>Certificate Included</li>
+							</ul>
+						</article>
+						<article id="c9">
+							<a href="#" class="image"><img src="images/c9.jpeg" alt="" /></a>
+							<h3>Video editing</h3>
+							<div class="row">
+								<h4>
+									AED 699
+								</h4>
+								<h5 style="margin-top: 4px; color: gray; text-decoration: line-through;">
+									AED 1500
+								</h5>
+								<h5 style="margin-top: 4px; color: gray;">
+									(Limited Offer)
+								</h5>
+							</div>
+							<ul>
+								<li>8 weeks duration</li>
+								<li>Live + Recording</li>
+								<li>Group Classes</li>
+								<li>Certificate Included</li>
+							</ul>
+
+
+						</article>
+						<article id="c10">
+							<a href="#" class="image"><img src="images/c10.jpeg" alt="" /></a>
+							<h3>Financial Independence & Wealth Building (FIRE)</h3>
+							<div class="row">
+								<h4>
+									AED 699
+								</h4>
+								<h5 style="margin-top: 4px; color: gray; text-decoration: line-through;">
+									AED 1000
+								</h5>
+								<h5 style="margin-top: 4px; color: gray;">
+									(Limited Offer)
+								</h5>
+							</div>
+							<ul>
+								<li>8 weeks duration</li>
+								<li>Live + Recording</li>
+								<li>Group Classes</li>
+								<li>Certificate Included</li>
+							</ul>
+
+						</article>
+					</div>
+				</section>
+
+			</div>
+		</div>
+
+		<!-- Sidebar -->
+		<div id="sidebar">
+			<div class="inner">
+				<!-- Menu -->
+				<nav id="menu">
+					<header class="major">
+						<h2>Menu</h2>
+					</header>
+					<ul>
+						<li><a href="index.html">Home</a></li>
+						<li><a href="#about">About</a></li>
+						<li><a href="#course">Courses</a></li>
+
+				</nav>
+
+				<!-- Section -->
+
+				<!-- Section -->
+				<section>
+					<header class="major">
+						<h2>Contact</h2>
+					</header>
+
+
+
+					<ul class="contact" style="list-style:none; padding:0; margin:0;">
+						<li style="display:flex; align-items:center; gap:10px;">
+							<i class="ri-mail-fill" style="font-size:20px; color:#7e1881;"></i>
+							<span>connect@futurevisionmastery.com</span>
+						</li>
+
+						<li style="display:flex; align-items:center; gap:10px;">
+							<i class="ri-whatsapp-fill" style="font-size:20px; color:#7e1881;"></i>
+							<span>+91-7203072213</span>
+						</li>
+
+						<li style="display:flex; align-items:center; gap:10px;">
+							<i class="ri-home-4-fill" style="font-size:20px; color:#7e1881;"></i>
+							<span>Dubai, UAE (Online courses – available across UAE)</span>
+						</li>
+					</ul>
+
+
+				</section>
+
+				<!-- Footer -->
+				<footer id="footer">
+					<p class="copyright">&copy; FVM-Future Vision Mastery. All rights reserved</p>
+				</footer>
+
+			</div>
+		</div>
+
+	</div>
+
+	<!-- Scripts -->
+	<script src="assets/js/jquery.min.js"></script>
+	<script src="assets/js/browser.min.js"></script>
+	<script src="assets/js/breakpoints.min.js"></script>
+	<script src="assets/js/util.js"></script>
+	<script src="assets/js/main.js"></script>
 
 </body>
 
